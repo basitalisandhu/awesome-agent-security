@@ -24,7 +24,7 @@ An AI agent is a model that can read untrusted content and call tools with real 
 
 Brokers, gateways, policy engines and guardrails that sit between an agent and the tools, credentials and data it uses.
 
-- [hisar-broker](https://basitalisandhu.github.io/hisar/hisar-broker.html) - Scoped, short-lived credentials for AI agents with human approvals, a kill switch and a tamper-evident audit log.
+- [Masoon Broker](https://basitalisandhu.github.io/masoon/masoon-broker.html) - Scoped, short-lived credentials for AI agents with human approvals, a kill switch and a tamper-evident audit log.
 - [llm-agent-control-plane](https://github.com/basitalisandhu/llm-agent-control-plane) - Deterministic policy enforcement point for LLM agents with provenance and approval rules, evaluated on AgentDojo.
 - [jentic-one](https://github.com/jentic/jentic-one) - Self-hosted execution layer that connects agents to APIs, scopes what they can touch and keeps credentials out of the agent's hands.
 - [hermes-vault](https://github.com/asimons81/hermes-vault) - Local-first credential broker, scanner and encrypted vault for the Hermes agent.
@@ -183,4 +183,4 @@ See [contributing.md](contributing.md). Every entry must be a public, maintained
 
 ## Sibling projects
 
-This list is maintained alongside [Hisar](https://github.com/basitalisandhu/hisar), open-source trust infrastructure for AI agents.
+This list is maintained alongside [Masoon](https://github.com/basitalisandhu/masoon), open-source trust infrastructure for AI agents.
