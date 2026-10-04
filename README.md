@@ -18,14 +18,12 @@ An AI agent is a model that can read untrusted content and call tools with real 
 - [Talks](#talks)
 - [Related lists](#related-lists)
 - [Contributing](#contributing)
-- [Sibling projects](#sibling-projects)
+- [Related projects](#related-projects)
 
 ## Runtime controls and authorization
 
 Brokers, gateways, policy engines and guardrails that sit between an agent and the tools, credentials and data it uses.
 
-- [Masoon Broker](https://basitalisandhu.github.io/masoon/masoon-broker.html) - Scoped, short-lived credentials for AI agents with human approvals, a kill switch and a tamper-evident audit log.
-- [llm-agent-control-plane](https://github.com/basitalisandhu/llm-agent-control-plane) - Deterministic policy enforcement point for LLM agents with provenance and approval rules, evaluated on AgentDojo.
 - [jentic-one](https://github.com/jentic/jentic-one) - Self-hosted execution layer that connects agents to APIs, scopes what they can touch and keeps credentials out of the agent's hands.
 - [hermes-vault](https://github.com/asimons81/hermes-vault) - Local-first credential broker, scanner and encrypted vault for the Hermes agent.
 - [ADR](https://github.com/uber/ADR) - Observability, security benchmarking and threat detection for enterprise AI agents, from Uber.
@@ -181,6 +179,6 @@ Talk and workshop material that is published in a repository. Recordings are add
 
 See [contributing.md](contributing.md). Every entry must be a public, maintained project with documentation and a one-line description in the project's own words; archived and unmaintained projects are removed. Run `python3 scripts/check_links.py` before opening a pull request.
 
-## Sibling projects
+## Related projects
 
-This list is maintained alongside [Masoon](https://github.com/basitalisandhu/masoon), open-source trust infrastructure for AI agents.
+More tools by the same author: https://github.com/basitalisandhu

@@ -15,7 +15,7 @@ from pathlib import Path
 ENTRY_RE = re.compile(r"^- \[(?P<name>[^\]]+)\]\((?P<url>https?://[^)\s]+)\) - (?P<desc>.+)$")
 HEADING_RE = re.compile(r"^(#{2,3}) (.+?)\s*$")
 BADGE = "[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)"
-SKIP_SECTIONS = {"Contents", "Contributing", "Sibling projects"}
+SKIP_SECTIONS = {"Contents", "Contributing", "Related projects"}
 
 
 def slug(title: str) -> str:
