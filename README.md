@@ -83,6 +83,7 @@ Rules and analysers that find insecure agent code and workflows before they run.
 - [Semgrep](https://github.com/semgrep/semgrep) - Static analysis engine the rule packs above run on.
 - [Gitleaks](https://github.com/gitleaks/gitleaks) - Secret scanner for repositories, files and agent configuration.
 - [aibom](https://github.com/cisco-ai-defense/aibom) - Generates an AI bill of materials by scanning source code.
+- [whatileaked](https://github.com/selan-ai/whatileaked) - Scans local Claude Code, Codex and Cursor transcripts for credentials already sent to the model, using the gitleaks rule set.
 
 ## Red teaming and evaluation
 
