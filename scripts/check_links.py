@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Check the list against the awesome conventions: format, table of contents, duplicates.
 
-Offline by default. ``--live`` also issues a request to every link (needs network access).
+Offline by default. ``--live`` also requests every entry link (needs network access) and
+fails on dead links only (404, 410, unknown host); bot walls and timeouts are warnings.
 Exit code 1 when any problem is found.
 """
 
@@ -9,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import socket
 import sys
 from pathlib import Path
 
@@ -93,25 +95,54 @@ def check(path: Path) -> list[str]:
     return problems
 
 
-def live_check(path: Path, timeout: float) -> list[str]:
+DEAD_STATUSES = {404, 410}
+
+
+def request_status(url: str, timeout: float, opener=None) -> int | str:
+    """HTTP status for url (HEAD, then GET when HEAD is refused), or an error name.
+
+    ``opener`` defaults to urllib's urlopen and is injectable for tests.
+    """
     import urllib.error
     import urllib.request
 
+    opener = opener or urllib.request.urlopen
+    status: int | str = "error"
+    for method in ("HEAD", "GET"):
+        req = urllib.request.Request(url, method=method, headers={"User-Agent": "awesome-agent-security-check/1.1"})
+        try:
+            with opener(req, timeout=timeout) as resp:  # noqa: S310 - https links from the list
+                return resp.status
+        except urllib.error.HTTPError as exc:
+            status = exc.code
+            if exc.code in DEAD_STATUSES:
+                return exc.code
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
+            reason = getattr(exc, "reason", exc)
+            if isinstance(reason, socket.gaierror):
+                return "unknown host"
+            status = type(reason).__name__
+    return status
+
+
+def live_check(path: Path, timeout: float, opener=None) -> tuple[list[str], list[str]]:
+    """Request every entry link. Returns (problems, warnings).
+
+    A link is a problem only when it is dead: 404, 410 or a host that does not resolve.
+    Anything else that is not 2xx (bot walls, rate limits, timeouts) is a warning.
+    """
     problems: list[str] = []
+    warnings: list[str] = []
     urls = sorted({m.group("url") for line in path.read_text(encoding="utf-8").splitlines() if (m := ENTRY_RE.match(line))})
     for url in urls:
-        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "awesome-agent-security-check/1.0"})
-        try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310 - https links from the list
-                if resp.status >= 400:
-                    problems.append(f"{url}: HTTP {resp.status}")
-        except urllib.error.HTTPError as exc:
-            if exc.code == 405:
-                continue
-            problems.append(f"{url}: HTTP {exc.code}")
-        except (urllib.error.URLError, TimeoutError, OSError) as exc:
-            problems.append(f"{url}: {exc}")
-    return problems
+        status = request_status(url, timeout, opener)
+        if isinstance(status, int) and 200 <= status < 400:
+            continue
+        if status in DEAD_STATUSES or status == "unknown host":
+            problems.append(f"{url}: dead ({status})")
+        else:
+            warnings.append(f"{url}: {status}")
+    return problems, warnings
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -123,7 +154,10 @@ def main(argv: list[str] | None = None) -> int:
     path = Path(args.readme)
     problems = check(path)
     if args.live:
-        problems += live_check(path, args.timeout)
+        dead, warnings = live_check(path, args.timeout)
+        problems += dead
+        for w in warnings:
+            print(f"warning: {w}")
     entries = sum(1 for line in path.read_text(encoding="utf-8").splitlines() if ENTRY_RE.match(line))
     for p in problems:
         print(f"error: {p}")

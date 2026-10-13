@@ -2,7 +2,7 @@
 
 > Curated list of AI agent security tools, papers and datasets: runtime controls, sandboxes, scanners for MCP servers and skills, static analysis, red teaming, incident records, threat models and standards.
 
-An AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](contributing.md) for the inclusion criteria.
+An AI agent is a model that can read untrusted content and call tools with real privileges. Securing one means controlling what it may touch, isolating what it runs, scanning what it loads, and measuring how it fails. Every entry below exists on GitHub and is maintained; descriptions are the projects' own words, shortened. Maintained by [Muhammad Basit Ali](https://github.com/basitalisandhu); projects by the maintainer are listed in their sections like any other entry. See [contributing.md](contributing.md) for the inclusion criteria and [SECURITY.md](SECURITY.md) to report a listed project that has turned malicious.
 
 ## Contents
 
@@ -40,7 +40,6 @@ Brokers, gateways, policy engines and guardrails that sit between an agent and t
 - [ToolHive](https://github.com/stacklok/toolhive) - Platform for running and managing MCP servers with isolation and policy, including a Kubernetes operator.
 - [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector) - Security wrapper for MCP servers from Trail of Bits that pins tool descriptions and guards context.
 - [Vigil](https://github.com/deadbits/vigil-llm) - Detects prompt injections, jailbreaks and other risky LLM inputs with YARA rules and models.
-
 - [Hyperconsciousness](https://github.com/louis030195/hyperconsciousness) - Developer-alpha encrypted, append-only knowledge store with scoped, expiring grants for agent access through MCP.
 
 ## Sandboxes
@@ -57,6 +56,7 @@ Isolation for the code and processes an agent runs.
 - [gVisor](https://github.com/google/gvisor) - Application kernel that isolates containers from the host kernel.
 - [bubblewrap](https://github.com/containers/bubblewrap) - Low-level unprivileged sandboxing tool used by Flatpak and agent runtimes.
 - [nsjail](https://github.com/google/nsjail) - Process isolation with Linux namespaces, cgroups, rlimits and seccomp-bpf filters.
+- [agent-sandbox](https://github.com/kubernetes-sigs/agent-sandbox) - Kubernetes `Sandbox` resource and controller for isolated, stateful, singleton workloads such as agent runtimes, delegating isolation to runtimes like gVisor or Kata Containers.
 
 ## Scanners for MCP servers and skills
 
@@ -107,6 +107,7 @@ Attack frameworks, benchmarks and vulnerable targets for measuring how an agent 
 - [agentshield-benchmark](https://github.com/doronp/agentshield-benchmark) - Open benchmark for agent security tools covering prompt injection, exfiltration, tool abuse and provenance.
 - [mcp-injection-experiments](https://github.com/invariantlabs-ai/mcp-injection-experiments) - Code to reproduce MCP tool poisoning attacks.
 - [Damn Vulnerable MCP Server](https://github.com/harishsg993010/damn-vulnerable-MCP-server) - Deliberately vulnerable MCP server for learning and testing scanners.
+- [Agentic Security](https://github.com/msoedov/agentic_security) - Vulnerability scanner and red teaming kit for agent workflows and LLMs, with multi-step jailbreaks, fuzzing and multimodal attacks.
 
 ### Offensive security agents and skills
 
@@ -152,6 +153,7 @@ Published frameworks and specifications that agent security work maps to. GitHub
 - [MITRE ATLAS data](https://github.com/mitre-atlas/atlas-data) - Tactics, techniques and case studies of the MITRE ATLAS knowledge base in machine-readable form.
 - [Dioptra](https://github.com/usnistgov/dioptra) - NIST's test platform for characterising AI technologies, companion to the NIST AI Risk Management Framework.
 - [Model Context Protocol](https://github.com/modelcontextprotocol/modelcontextprotocol) - The MCP specification, including its authorization and security best practices documents.
+- [CoSAI agentic secure design](https://github.com/cosai-oasis/ws4-secure-design-agentic-systems) - Coalition for Secure AI workstream on secure design patterns and threat models for agentic systems, an OASIS Open Project.
 
 ## Papers
 
@@ -185,4 +187,4 @@ See [contributing.md](contributing.md). Every entry must be a public, maintained
 
 ## Related projects
 
-More tools by the same author: https://github.com/basitalisandhu
+Project hub: https://basitalisandhu.github.io/ . More tools by the same author: https://github.com/basitalisandhu
