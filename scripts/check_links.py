@@ -95,6 +95,24 @@ def check(path: Path) -> list[str]:
     return problems
 
 
+def fix_toc(path: Path) -> bool:
+    """Rewrite the Contents block in place from the section headings. Returns True when the file changed."""
+    lines = path.read_text(encoding="utf-8").splitlines()
+    headings = [(i, HEADING_RE.match(line)) for i, line in enumerate(lines) if HEADING_RE.match(line)]
+    toc_index = next((i for i, m in headings if m.group(1) == "##" and m.group(2) == "Contents"), None)
+    if toc_index is None:
+        return False
+    titles = [m.group(2) for i, m in headings if m.group(1) == "##" and m.group(2) != "Contents"]
+    end = next((i for i, _ in headings if i > toc_index), len(lines))
+    block = [""] + [f"- [{t}](#{slug(t)})" for t in titles] + [""]
+    new_lines = lines[: toc_index + 1] + block + lines[end:]
+    new_text = "\n".join(new_lines) + "\n"
+    if new_text == path.read_text(encoding="utf-8"):
+        return False
+    path.write_text(new_text, encoding="utf-8")
+    return True
+
+
 DEAD_STATUSES = {404, 410}
 
 
@@ -150,8 +168,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("readme", nargs="?", default=str(Path(__file__).resolve().parent.parent / "README.md"))
     parser.add_argument("--live", action="store_true", help="also request every link")
     parser.add_argument("--timeout", type=float, default=10.0)
+    parser.add_argument("--fix-toc", action="store_true", help="rewrite the Contents block from the section headings")
     args = parser.parse_args(argv)
     path = Path(args.readme)
+    if args.fix_toc:
+        changed = fix_toc(path)
+        print(f"contents rewritten: {path}" if changed else f"contents already in sync: {path}")
     problems = check(path)
     if args.live:
         dead, warnings = live_check(path, args.timeout)
