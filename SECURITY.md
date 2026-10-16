@@ -34,3 +34,7 @@ Report it to that project through its own security policy.
 ## Supported versions
 
 Only the `main` branch is maintained.
+
+## Reporting
+
+Report a vulnerability privately: <https://github.com/basitalisandhu/awesome-agent-security/security/advisories/new>
