@@ -52,6 +52,18 @@ def test_contents_must_match_sections(tmp_path):
     assert any("contents is out of sync" in p for p in check_links.check(path))
 
 
+def test_fix_toc_rewrites_stale_contents(tmp_path):
+    path = write(tmp_path, "## Tools\n\n- [a](https://github.com/o/a) - Does a.\n\n## More\n\n- [b](https://github.com/o/b) - Does b.\n")
+    assert any("contents is out of sync" in p for p in check_links.check(path))
+    assert check_links.main(["--fix-toc", str(path)]) == 0
+    assert check_links.check(path) == []
+    assert path.read_text(encoding="utf-8").count("- [Tools](#tools)") == 1
+    assert "- [More](#more)" in path.read_text(encoding="utf-8")
+    before = path.read_text(encoding="utf-8")
+    assert check_links.main(["--fix-toc", str(path)]) == 0
+    assert path.read_text(encoding="utf-8") == before
+
+
 def test_title_badge_trailing_space_and_empty_section(tmp_path):
     path = tmp_path / "README.md"
     path.write_text("# Test\n\nno quote\n\n## Contents\n\n- [Tools](#tools)\n\n## Tools \n", encoding="utf-8")
