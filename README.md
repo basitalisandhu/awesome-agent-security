@@ -41,6 +41,7 @@ Brokers, gateways, policy engines and guardrails that sit between an agent and t
 - [mcp-context-protector](https://github.com/trailofbits/mcp-context-protector) - Security wrapper for MCP servers from Trail of Bits that pins tool descriptions and guards context.
 - [Vigil](https://github.com/deadbits/vigil-llm) - Detects prompt injections, jailbreaks and other risky LLM inputs with YARA rules and models.
 - [Hyperconsciousness](https://github.com/louis030195/hyperconsciousness) - Developer-alpha encrypted, append-only knowledge store with scoped, expiring grants for agent access through MCP.
+- [agent-airlock](https://github.com/sattyamjjain/agent-airlock) - Deny-by-default contract layer for AI agent tool calls, with strict argument validation, ghost-argument stripping and self-healing retries, applied as one decorator.
 
 ## Sandboxes
 
@@ -74,6 +75,7 @@ Tools that inspect MCP servers, agent skills, plugins and configuration before a
 - [agent-config-audit](https://github.com/basitalisandhu/agent-config-audit) - Audits agent configuration files (Claude Code settings, `.mcp.json`, Cursor rules, hooks, plugins) for risky permissions, secrets, unpinned servers and prompt injection.
 - [agent-security-skills](https://github.com/basitalisandhu/agent-security-skills) - Claude Code plugin and skill pack for agent security reviews: threat modelling, config audits, MCP server review and incident lookup.
 - [Ironheights](https://github.com/Frank-Masciopinto/ironheights) - Open-source local-first security scanner for OpenClaw agent skills that catches malicious ClawHub skills, prompt injection, credential theft and tampering before install.
+- [agent-audit-kit](https://github.com/sattyamjjain/agent-audit-kit) - Static security scanner for MCP-connected agent pipelines that finds misconfigurations, hardcoded secrets, tool poisoning, rug pulls and tainted data flows, and runs fully offline.
 
 ## Static analysis
 
