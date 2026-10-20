@@ -182,6 +182,7 @@ Talk and workshop material that is published in a repository. Recordings are add
 - [awesome-mcp-security](https://github.com/Puliczek/awesome-mcp-security) - Security research, writeups and tools for the Model Context Protocol.
 - [awesome-ai-safety](https://github.com/Giskard-AI/awesome-ai-safety) - Papers and articles on AI quality and safety.
 - [awesome-blackhat-arsenal](https://github.com/elbraino/awesome-blackhat-arsenal) - Security tools featured at Black Hat Arsenal events.
+- [awesome-ai-agents](https://github.com/ianwieds/awesome-ai-agents) - Curated list of AI agent frameworks, coding agents, browser agents, tools, platforms and research, with a safety and security section.
 
 ## Contributing
 
