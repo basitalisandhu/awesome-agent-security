@@ -42,6 +42,7 @@ Brokers, gateways, policy engines and guardrails that sit between an agent and t
 - [Vigil](https://github.com/deadbits/vigil-llm) - Detects prompt injections, jailbreaks and other risky LLM inputs with YARA rules and models.
 - [Hyperconsciousness](https://github.com/louis030195/hyperconsciousness) - Developer-alpha encrypted, append-only knowledge store with scoped, expiring grants for agent access through MCP.
 - [agent-airlock](https://github.com/sattyamjjain/agent-airlock) - Deny-by-default contract layer for AI agent tool calls, with strict argument validation, ghost-argument stripping and self-healing retries, applied as one decorator.
+- [AEGIS](https://github.com/antropos17/Aegis) - Windows-first desktop oversight for AI agents with local monitoring, security reviews, opt-in action policies and MCP gateways.
 
 ## Sandboxes
 
