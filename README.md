@@ -88,6 +88,7 @@ Rules and analysers that find insecure agent code and workflows before they run.
 - [Gitleaks](https://github.com/gitleaks/gitleaks) - Secret scanner for repositories, files and agent configuration.
 - [aibom](https://github.com/cisco-ai-defense/aibom) - Generates an AI bill of materials by scanning source code.
 - [whatileaked](https://github.com/selan-ai/whatileaked) - Scans local Claude Code, Codex and Cursor transcripts for credentials already sent to the model, using the gitleaks rule set.
+- [Agent Role Contracts](https://github.com/suirindo/agent-role-contracts) - Offline validation of declared agent roles, task scopes, review separation, and handoffs before execution; does not enforce runtime permissions.
 
 ## Red teaming and evaluation
 
