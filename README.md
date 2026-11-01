@@ -22,6 +22,7 @@ An AI agent is a model that can read untrusted content and call tools with real 
 
 ## Runtime controls and authorization
 
+- [agent-runtime-guard](https://github.com/DSHCorrectover/agent-runtime-guard) - Fail-closed MCP/tool-call runtime interceptor with offline-verifiable Ed25519 receipts (`npx -y agent-runtime-guard`).
 Brokers, gateways, policy engines and guardrails that sit between an agent and the tools, credentials and data it uses.
 
 - [jentic-one](https://github.com/jentic/jentic-one) - Self-hosted execution layer that connects agents to APIs, scopes what they can touch and keeps credentials out of the agent's hands.
@@ -64,6 +65,7 @@ Isolation for the code and processes an agent runs.
 
 Tools that inspect MCP servers, agent skills, plugins and configuration before an agent loads them.
 
+- [correctover-scan](https://github.com/DSHCorrectover/correctover-scan) - MCP and AI agent security scanner (config + published-bundle modes, SARIF, OWASP AISVS).
 - [SkillSpector](https://github.com/NVIDIA/SkillSpector) - Scanner for agent skills that detects prompt injection, data exfiltration and supply-chain risks before installation.
 - [skill-scanner](https://github.com/cisco-ai-defense/skill-scanner) - Security scanner for agent skills from Cisco AI Defense.
 - [agent-scan](https://github.com/snyk/agent-scan) - Security scanner for AI agents, MCP servers and agent skills, maintained by Snyk.
@@ -126,6 +128,7 @@ Agents that use models to find vulnerabilities; useful as targets and as referen
 
 ## Datasets and incident records
 
+- [MCP Atlas Census](https://github.com/DSHCorrectover/mcp-atlas-census) - Live MCP tool census: 229,827 tools with input_schema from 13,120 servers (CC0).
 Structured records of attacks, incidents and vulnerabilities.
 
 - [ai-agent-incidents](https://github.com/basitalisandhu/ai-agent-incidents) - Open dataset of publicly documented AI agent security incidents, mapped to OWASP and MITRE ATLAS, with a browsable site and RSS feed.
