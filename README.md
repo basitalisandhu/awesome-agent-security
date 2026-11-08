@@ -111,6 +111,7 @@ Attack frameworks, benchmarks and vulnerable targets for measuring how an agent 
 - [mcp-injection-experiments](https://github.com/invariantlabs-ai/mcp-injection-experiments) - Code to reproduce MCP tool poisoning attacks.
 - [Damn Vulnerable MCP Server](https://github.com/harishsg993010/damn-vulnerable-MCP-server) - Deliberately vulnerable MCP server for learning and testing scanners.
 - [Agentic Security](https://github.com/msoedov/agentic_security) - Vulnerability scanner and red teaming kit for agent workflows and LLMs, with multi-step jailbreaks, fuzzing and multimodal attacks.
+- [Memory Poisoning Lab](https://github.com/RishabhPande/memory-poison-lab) - Local teaching range for memory-poisoning attacks and defenses, with synthetic targets and a scripted agent.
 
 ### Offensive security agents and skills
 
