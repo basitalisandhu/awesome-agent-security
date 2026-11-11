@@ -77,6 +77,7 @@ Tools that inspect MCP servers, agent skills, plugins and configuration before a
 - [agent-security-skills](https://github.com/basitalisandhu/agent-security-skills) - Claude Code plugin and skill pack for agent security reviews: threat modelling, config audits, MCP server review and incident lookup.
 - [Ironheights](https://github.com/Frank-Masciopinto/ironheights) - Open-source local-first security scanner for OpenClaw agent skills that catches malicious ClawHub skills, prompt injection, credential theft and tampering before install.
 - [agent-audit-kit](https://github.com/sattyamjjain/agent-audit-kit) - Static security scanner for MCP-connected agent pipelines that finds misconfigurations, hardcoded secrets, tool poisoning, rug pulls and tainted data flows, and runs fully offline.
+- [KarmaDue](https://github.com/ashadow07/karmadue) - A pre-install check for AI agents: known install traps, tested fixes, malicious-package warnings.
 
 ## Static analysis
 
