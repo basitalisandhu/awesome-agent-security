@@ -88,6 +88,7 @@ Rules and analysers that find insecure agent code and workflows before they run.
 - [Gitleaks](https://github.com/gitleaks/gitleaks) - Secret scanner for repositories, files and agent configuration.
 - [aibom](https://github.com/cisco-ai-defense/aibom) - Generates an AI bill of materials by scanning source code.
 - [whatileaked](https://github.com/selan-ai/whatileaked) - Scans local Claude Code, Codex and Cursor transcripts for credentials already sent to the model, using the gitleaks rule set.
+- [P-Trust (P-CSDSAI)](https://github.com/pengpengyi92/p-csdsai) - Read-only static inspection of public agent repositories with pinned commits, permission findings and file/line evidence, without executing target code.
 
 ## Red teaming and evaluation
 
