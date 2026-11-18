@@ -43,6 +43,7 @@ Brokers, gateways, policy engines and guardrails that sit between an agent and t
 - [Hyperconsciousness](https://github.com/louis030195/hyperconsciousness) - Developer-alpha encrypted, append-only knowledge store with scoped, expiring grants for agent access through MCP.
 - [agent-airlock](https://github.com/sattyamjjain/agent-airlock) - Deny-by-default contract layer for AI agent tool calls, with strict argument validation, ghost-argument stripping and self-healing retries, applied as one decorator.
 - [AEGIS](https://github.com/antropos17/Aegis) - Windows-first desktop oversight for AI agents with local monitoring, security reviews, opt-in action policies and MCP gateways.
+- [ControlClaw](https://github.com/madarco/controlclaw) - AI firewall for OpenClaw agents that checks requests and MCP calls against plain-English rules, keeps credentials on the firewall and holds risky actions for approval.
 
 ## Sandboxes
 
